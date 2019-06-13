@@ -7,23 +7,14 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "ENV_VAR=development node app.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/apikritch/D4.git"
-  },
   "author": "Apikritch Rattanapisankul",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/apikritch/D4/issues"
-  },
-  "homepage": "https://github.com/apikritch/D4#readme",
   "dependencies": {
     "@hapi/joi": "^15.0.3",
     "config": "^3.1.0",
     "debug": "^4.1.1",
     "express": "^4.17.1",
     "helmet": "^3.18.0",
-    "mongoose": "^5.5.14",
     "morgan": "^1.9.1"
   }
 }

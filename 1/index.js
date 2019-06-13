@@ -18,7 +18,7 @@ const tools = require('./routes/tools');
 const home = require('./routes/home');
 //Import authentication
 const authentication = require('./authentication')
-//Load express function
+//Load express
 const express = require('express');
 //Save express function in a variable
 const app = express();
