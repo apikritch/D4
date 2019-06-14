@@ -48,7 +48,7 @@ router.post('/', async(req, res) => {
 });
 
 //
-router.get('/me', auth, async(req, res)=> {
+router.get('/me', auth, async(req, res, next)=> {
 
     //Search ID in the database
     const user = await User.findById(req.user._id).select('-password');

@@ -1,3 +1,5 @@
+//Load admin middleware
+const admin = require('../middleware/admin');
 //Load auth middleware
 const auth = require('../middleware/auth');
 //Load Customer Schema and validateCustomer
@@ -10,7 +12,7 @@ const express = require('express');
 const router = express.Router();
 
 //Create "/" GET route
-router.get('/', async(req, res) => {
+router.get('/', async(req, res, next) => {
     const customers = await Customer.find().sort('name');
     res.send(customers);
 });
@@ -65,7 +67,7 @@ router.put('/:id', auth, async(req, res) => {
 });
 
 //Create "/:id" DELETE route
-router.delete('/:id', auth, async(req, res) => {
+router.delete('/:id', [auth, admin], async(req, res) => {
 
     //Find and remove document
     const customer = await Customer.findByIdAndRemove(req.params.id);

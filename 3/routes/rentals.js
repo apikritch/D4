@@ -19,7 +19,7 @@ const router = express.Router();
 Fawn.init(mongoose);
 
 //Create "/" GET route
-router.get('/', async(req, res) => {
+router.get('/', async(req, res, next) => {
     const rentals = await Rental.find().sort('-dateOut');
     res.send(rentals);
 });

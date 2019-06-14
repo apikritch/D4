@@ -1,3 +1,7 @@
+//Require express-async-errors
+require('express-async-errors');
+//Load error middleware
+const error = require('./middleware/error');
 //Load config
 const config = require('config');
 //Load Joi
@@ -52,6 +56,8 @@ app.use('/api/rentals', rentals);
 app.use('/api/users', users);
 //Load the auth route
 app.use('/api/auth', auth);
+//Use the error middleware
+app.use(error);
 
 //Process a global object that has an env variable that stores the port
 const port = process.env.PORT || 3000;

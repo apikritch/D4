@@ -1,3 +1,7 @@
+//Load asyncMiddleware
+//const asyncMiddleware = require('../middleware/async');
+//Load admin middleware
+const admin = require('../middleware/admin');
 //Load auth middleware
 const auth = require('../middleware/auth');
 //Load Category Schema and validateCategory
@@ -10,9 +14,11 @@ const express = require('express');
 const router = express.Router();
 
 //Create "/" GET route
-router.get('/', async(req, res) => {
+router.get('/', async(req, res, next) => {
+
     const categories = await Category.find().sort('name');
     res.send(categories);
+
 });
 
 //Create "/" POST route
@@ -53,7 +59,7 @@ router.put('/:id', auth, async(req, res) => {
 });
 
 //Create "/:id" DELETE route
-router.delete('/:id', auth, async(req, res) => {
+router.delete('/:id', [auth, admin], async(req, res) => {
 
     //Find and remove document
     const category = await Category.findByIdAndRemove(req.params.id);
