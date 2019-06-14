@@ -1,3 +1,5 @@
+//Load auth middleware
+const auth = require('../middleware/auth');
 //Load Category Schema and validateCategory
 const {Category, validateCategory} = require('../models/category')
 //Load mongoose
@@ -14,7 +16,7 @@ router.get('/', async(req, res) => {
 });
 
 //Create "/" POST route
-router.post('/', async(req, res) => {
+router.post('/', auth, async(req, res) => {
 
    //Grab the error part of the object and store it in an object called error
    const {error} = validateCategory(req.body);
@@ -33,7 +35,7 @@ router.post('/', async(req, res) => {
 });
 
 //Create "/:id" UPDATE route
-router.put('/:id', async(req, res) => {
+router.put('/:id', auth, async(req, res) => {
 
     //Return 400 if invalid
     const {error} = validateCategory(req.body);
@@ -51,7 +53,7 @@ router.put('/:id', async(req, res) => {
 });
 
 //Create "/:id" DELETE route
-router.delete('/:id', async(req, res) => {
+router.delete('/:id', auth, async(req, res) => {
 
     //Find and remove document
     const category = await Category.findByIdAndRemove(req.params.id);

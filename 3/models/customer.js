@@ -38,7 +38,7 @@ function validateCustomer(customer){
         name: Joi.string().required().min(3).max(255),
         isPremium: Joi.boolean(),
         phone: Joi.string().required().min(3).max(255),
-        email: Joi.string().required().min(3).max(255)
+        email: Joi.string().email().required().min(3).max(255)
     };
 
     return Joi.validate(customer, schema);

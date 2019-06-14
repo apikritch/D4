@@ -43,7 +43,7 @@ const Tool = mongoose.model('Tools', new mongoose.Schema({
 function validateTool(tool){
     const schema = {
         name: Joi.string().required().min(3).max(255),
-        categoryId: Joi.string().required(),
+        categoryId: Joi.objectId().required(),
         numberInStock: Joi.number().required().min(0).max(100),
         hourlyRentalRate:Joi.number().required().min(0).max(24),
         dailyRentalRate: Joi.number().required().min(0).max(365)
