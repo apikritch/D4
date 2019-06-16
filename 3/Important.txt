@@ -25,13 +25,14 @@ add customer
 add category
 add tool
 add rental
-
 add admin directly by mongodb
 try to delete any data from any collection
 done!
 
 Project 2
 login phpmyadmin
+create table
+first_name, last_name, email, password, confirm_password
 add data from homepage
 check in database
 Done!
