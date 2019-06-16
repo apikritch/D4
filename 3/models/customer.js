@@ -35,6 +35,7 @@ const Customer = mongoose.model('Customer', customerSchema);
 //Make JOI ValidateCustomer function
 function validateCustomer(customer){
     const schema = {
+        //set datatype, required, min and max length
         name: Joi.string().required().min(3).max(255),
         isPremium: Joi.boolean(),
         phone: Joi.string().required().min(3).max(255),
