@@ -13,6 +13,25 @@ router.get('/', async(req, res, next) => {
 const p = Promise.reject(new Error('The promise was rejected!'));
 p.then(()=> console.log('Done'));
 
-
-
+Project 1
+docker start mongodb
 $env:rentool_jwtPrivateKey="myPrivateKey"
+nodemon
+add user
+get token
+put x-auth-token: token
+login as user
+add customer
+add category
+add tool
+add rental
+
+add admin directly by mongodb
+try to delete any data from any collection
+done!
+
+Project 2
+login phpmyadmin
+add data from homepage
+check in database
+Done!
