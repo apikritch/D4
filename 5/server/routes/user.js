@@ -9,7 +9,7 @@ const router = express.Router();
 const pool = Mysql.createPool({
     host: 'localhost',
         user: 'root',
-        password: 'root',
+        password: '',
         database: 'node_usersapi',
         port: 3306
 })

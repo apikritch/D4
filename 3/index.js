@@ -38,7 +38,7 @@ if(!config.get('jwtPrivateKey')){
 }
 
 //Connect returns a promise 
-mongoose.connect('mongodb://localhost:37017/rentool', { useNewUrlParser: true })
+mongoose.connect('mongodb://192.168.99.100:37017/rentool', { useNewUrlParser: true })
 .then(()=>{console.log('connected');})
 .catch(err => console.error('connection failed', err));
 
